@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cadastro de Clientes | VueJS</title>
+
+  <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+  <script src='./styles.css'></script>
+</head>
+<body>
+  <div id="app">
+    
+    <form style="margin: 1%" action='#'>
+      <h3>{{vTitulo}}</h3><br>
+      
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <label for="inputCodigoCliente">Código</label>
+          <input @blur="validaCodigo" type="number" class="form-control" id="inputCodigoCliente" placeholder="DIGITE O CODIGO DO CLIENTE" v-model="codigo">
+        </div>
+
+        <div class="form-group col-md-6" >
+          <label for="inputRazaoSocial">Razão Social</label>
+          <input type="text" class="form-control" id="inputRazaoSocial" placeholder="DIGITE A RAZÃO SOCIAL">
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="inputAddress">Endereço</label>
+        <input type="text" class="form-control" id="inputAddress" placeholder="DIGITE O ENDEREÇO (Exe. Rua Voltuntario, N.100)">
+      </div>
+      
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <label for="inputCity">Cidade</label>
+          <input type="text" class="form-control" id="inputCity" placeholder="DIGITE A CIDADE">
+        </div>
+        <div class="form-group col-md-4">
+          <label for="inputEstado">Estado</label>
+          <select id="inputEstado" class="form-control">
+            <option selected>Escolher...</option>
+            <option>...</option>
+          </select>
+        </div>
+        <div class="form-group col-md-2">
+          <label for="inputCEP">CEP</label>
+          <input type="text" class="form-control" id="inputCEP" placeholder='DIGITE O CEP' v-model='cep'>
+        </div>
+      </div>
+      <div class="form-group col-md-2">
+      <button v-on:click="validaCep" class="btn btn-primary">GRAVAR</button>
+      <button type="submit" class="btn btn-secondary" action="#">CANCELAR</button>
+    </div>
+    </form>
+
+  </div>
+  
+
+  <script src='./scripts.js'></script>
+</body>
+</html>

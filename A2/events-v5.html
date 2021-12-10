@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{contador}}</title>
+  
+  <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+</head>
+<body>
+
+  <div id="app">
+    <p>{{contador}}</p>
+    <button v-on:click="somar(5, $event)"> Somar </button>
+    <p v-on:mousemove="atualizarxey">Mouse: {{x}} e {{y}}
+      <!-- v-on:xxxxxxx.stop: para o evento do pai acima do filho-->
+      <span v-on:mousemove.stop>PARAR AQUI!!!!</span>
+    </p>
+    <!-- v-on:click.prevent: não dispara o evento padrão-->
+    <a v-on:click.prevent href="http://google.com.br">Google</a><br> 
+
+    <input type="text" v-on:keyup.enter.alt="exibirAlerta">
+
+  </div>
+
+  <script>
+    new Vue({
+      el:'#app',
+      data:{
+      contador: 0,
+      x: 0,
+      y: 0,
+      },
+      methods:{
+        somar(passo, e){
+          this.contador += passo
+          console.log(e)
+        },
+        atualizarxey(event){
+          this.x = event.clientX;
+          this.y = event.clientY;
+        },
+        // parar(e){
+        //   e.stopPropagation();
+        // }
+        exibirAlerta(){
+          alert('Alerta OK')
+        }
+      }
+    })
+  </script>
+  
+</body>
+</html>

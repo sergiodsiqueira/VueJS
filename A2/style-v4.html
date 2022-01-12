@@ -1,0 +1,44 @@
+<script src="https://unpkg.com/vue"></script>
+
+<style>
+  .caixas{
+    display: flex;
+    justify-content: space-around;
+  }
+  .demo{
+    width: 100px;
+    height: 100px;
+    background-color: gray;
+  }
+</style>
+
+<div id="app">
+  <div class="caixas">
+    <div class="demo" :style="[estiloCSS]"></div>
+    <div class="demo"></div>
+    <div class="demo"></div>
+  </div>
+  <hr>
+  <input type="text" v-model="cor">
+  <input type="text" v-model="largura">
+</div>
+
+<script>
+  new Vue({
+    el:'#app',
+    data:{
+      cor: 'red',
+      altura: '100px',
+      largura: '200px'
+    },
+    computed:{
+      estiloCSS(){
+        return {
+          backgroundColor: this.cor,
+          width: this.largura,
+          height: this.altura,
+        }
+      }
+    }
+  })
+</script>
